@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>FaraDars.org</title>
+		<script>
+			function dragstart(ev){
+				ev.dataTransfer.setData("Text",ev.target.id);
+			}
+			
+			function dragfinish(ev){
+				ev.preventDefault();
+			}
+			
+			function dropstart(ev){
+				
+				var data=ev.dataTransfer.getData("Text");
+				
+				ev.target.appendChild(document.getElementById(data));
+				
+				ev.preventDefault();
+				
+			}
+		</script>
+	</head>
+	<body>
+		<p id="demo" style="text-align:center;">FaraDars.Org HTML 5 Course</p>
+		
+		<div style="width:700px; height:300px; border:2px; border-style:solid;" id="div1" ondrop="dropstart(event)" ondragover="dragfinish(event)"></div>
+		<div style="height:200px;"></div>
+		<div style="width:700px; height:300px; border:2px; border-style:solid;" id="div2" ondrop="dropstart(event)" ondragover="dragfinish(event)"></div>
+		<div style="height:200px;"></div>
+		<img id="img1" src="http://faradars.org/wp-content/uploads/2017/05/FVH4C96022.svg" draggable="true" ondragstart="dragstart(event)">
+			
+	</body>
+</html>
